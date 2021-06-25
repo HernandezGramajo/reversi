@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
 
-    res.send("Luis Hernandez 201504497")
+    res.send(" IA Luis Hernandez 201504497 ")
 })
 
 app.get('/jugar', async (req, res) => {
@@ -114,7 +114,7 @@ function buscar_adelante_atras_derecha_izqueirda(tablero,IA){
 
                     while(tablero[tempX][tempY]==retador){
                         tempY++;
-                        if(tempY >8  || tablero[tempX][tempY]==IA){ // se salio de los limites o esoy en el camino
+                        if(tempY >=8  || tablero[tempX][tempY]==IA){ // se salio de los limites o esoy en el camino
                             break;   
                         }
                         else if(tablero[tempX][tempY]==2) // encontre espacio libre para saltar
@@ -133,9 +133,129 @@ function buscar_adelante_atras_derecha_izqueirda(tablero,IA){
                     } 
 
                 }
+
+
+                // buscando diagonal inferior derecha
+                tempX =x+1;
+                tempY = y+1;
+                let cont_diagonal=0
+                if(tempY<8 && tempX<8){
+
+                    while(tablero[tempX][tempY]==retador){
+                        tempY++;
+                        tempX++;
+                        cont_diagonal++;
+                        if(tempY >=8 || tempX >=8 || tablero[tempX][tempY]==IA){ // se salio de los limites o esoy en el camino
+                            break;   
+                        }
+                        else if(tablero[tempX][tempY]==2) // encontre espacio libre para saltar
+                        {
+                            if(contador < cont_diagonal){
+                                contador = cont_diagonal;
+                                posicion = tempX +""+tempY;
+                                
+                            }
+                            break;
+                            
+                        }
+                        
+            
+    
+                    } 
+
+                }
+
+                // buscando diagonal superior derecha
+                tempX =x-1;
+                tempY = y+1;
+                cont_diagonal=0
+                if(tempY<8 && tempX>=0){
+
+                    while(tablero[tempX][tempY]==retador){
+                        tempY++;
+                        tempX--;
+                        cont_diagonal++;
+                        if(tempY >=8 || tempX <0 || tablero[tempX][tempY]==IA){ // se salio de los limites o esoy en el camino
+                            break;   
+                        }
+                        else if(tablero[tempX][tempY]==2) // encontre espacio libre para saltar
+                        {
+                            if(contador < cont_diagonal){
+                                contador = cont_diagonal;
+                                posicion = tempX +""+tempY;
+                                
+                            }
+                            break;
+                            
+                        }
+                        
+            
+    
+                    } 
+
+                }
                 
            
+                // buscando diagonal superior izquierda
+                tempX =x-1;
+                tempY = y-1;
+                cont_diagonal=0
+                if(tempY>=0 && tempX>=0){
 
+                    while(tablero[tempX][tempY]==retador){
+                        tempY--;
+                        tempX--;
+                        cont_diagonal++;
+                        if(tempY <0 || tempX <0 || tablero[tempX][tempY]==IA){ // se salio de los limites o esoy en el camino
+                            break;   
+                        }
+                        else if(tablero[tempX][tempY]==2) // encontre espacio libre para saltar
+                        {
+                            if(contador < cont_diagonal){
+                                contador = cont_diagonal;
+                                posicion = tempX +""+tempY;
+                                
+                            }
+                            break;
+                            
+                        }
+                        
+            
+    
+                    } 
+
+                }
+
+                
+                 // buscando diagonal inferior izquierda
+                 tempX =x+1;
+                 tempY = y-1;
+                 cont_diagonal=0
+                 if(tempY>=0 && tempX<8){
+ 
+                     while(tablero[tempX][tempY]==retador){
+                         tempY--;
+                         tempX++;
+                         cont_diagonal++;
+                         if(tempY <0 || tempX >=8 || tablero[tempX][tempY]==IA){ // se salio de los limites o esoy en el camino
+                             break;   
+                         }
+                         else if(tablero[tempX][tempY]==2) // encontre espacio libre para saltar
+                         {
+                             if(contador < cont_diagonal){
+                                 contador = cont_diagonal;
+                                 posicion = tempX +""+tempY;
+                                 
+                             }
+                             break;
+                             
+                         }
+                         
+             
+     
+                     } 
+ 
+                 }
             
             
           }                
