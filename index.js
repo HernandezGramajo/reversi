@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     res.send("Luis Hernandez 201504497")
 })
 
-app.get('/', (req, res) => {
+app.get('/jugar', (req, res) => {
     // obtiene los datos
   let turno = req.query.turno;
   let estado = req.query.estado;
