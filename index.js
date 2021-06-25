@@ -8,14 +8,14 @@ app.get('/', (req, res) => {
     res.send("Luis Hernandez 201504497")
 })
 
-app.get('/jugar', (req, res) => {
+app.get('/jugar', async (req, res) => {
     // obtiene los datos
   let turno = req.query.turno;
   let estado = req.query.estado;
 
   let tablero =crear_tablero(estado);
 
-let movimiento = buscar_adelante_atras_derecha_izqueirda(tablero,turno);
+  const movimiento = await buscar_adelante_atras_derecha_izqueirda(tablero,turno);
  
   console.log(turno)
   console.log(movimiento)
