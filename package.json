@@ -1,0 +1,14 @@
+{
+  "name": "proyecto1_reversi",
+  "version": "1.0.0",
+  "description": "proyecto IA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Pablo Hernandez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
