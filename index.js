@@ -19,7 +19,7 @@ let movimiento = buscar_adelante_atras_derecha_izqueirda(tablero,turno);
  
   console.log(turno)
   console.log(movimiento)
-  res.end(movimiento)
+  res.send(movimiento)
   
 })
 
